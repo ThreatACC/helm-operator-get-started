@@ -10,7 +10,7 @@ metadata:
 spec:
   releaseName: echoup-rc
   chart:
-    git: git@github.com:ThreatACC/helm-operator-get-started.git 
+    git: git@github.com:ThreatACC/helm-operator-get-started.git
     path: charts/echoup
     ref: master
   values:
