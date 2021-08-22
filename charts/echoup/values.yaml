@@ -5,7 +5,7 @@
 replicaCount: 2
 
 image:
-  repository: gcr.io/fine-balm-322411/echo-v2
+  repository: gcr.io/fine-balm-322411/echoup
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
