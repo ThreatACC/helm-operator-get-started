@@ -10,13 +10,13 @@ metadata:
 spec:
   releaseName: echoup-dev
   chart:
-    git: git@github.com:ThreatACC/helm-operator-get-started.git 
+    git: git@github.com:ThreatACC/helm-operator-get-started.git
     path: charts/echoup
     ref: master
   values:
     image:
       repository: gcr.io/fine-balm-322411/echoup
-      tag: dev-f5zo0mrv
+      tag: dev-5iqiwire
     replicaCount: 1
     hpa:
       enabled: false
