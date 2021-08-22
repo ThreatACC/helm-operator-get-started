@@ -16,7 +16,7 @@ spec:
   values:
     image:
       repository: gcr.io/fine-balm-322411/echoup
-      tag: dev-5iqiwire
+      tag: dev-f5zo0mrv
     replicaCount: 1
     hpa:
       enabled: false
