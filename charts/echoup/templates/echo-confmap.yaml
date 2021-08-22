@@ -4,6 +4,6 @@ kind: ConfigMap
 metadata:
   name: myconfigmap
 data:
-  PERSIST: "True"
+  PERSIST: "False"
   LOGLEVEL: "info"
 

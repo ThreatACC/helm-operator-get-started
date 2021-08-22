@@ -66,35 +66,35 @@ cert:
     stage: https://acme-staging-v02.api.letsencrypt.org/directory
   email: thekingoftheworld@TheOtherGoldenPalace.xyz
 
-cleaner:
-  restartPolicy: OnFailure
-  schedule: "1 0 * * *"
-
-storageClass:
-  name: &scname "slow"
-  provisioner: kubernetes.io/gce-pd
-  gcp:
-    type: pd-standard
-    fstype: xfs
-  replicationtype: none
-
-mongodb:
-  architecture: replicaset
-  useStatefulSet: true
-  auth:
-    rootPassword: "rootpass"
-    username: "username"
-    password: "password"
-    database: "echo"
-    replicaSetKey: "dg9CxJWOnuprgQ=="
-  replicaSetName: MainRepSet
-  replicaCount: 3
-  service:
-    nameOverride: "mongodb-headless"
-    clusterIP: "None"
-  persistence:
-    storageClass: *scname
-    size: 1Gi
-  arbiter:
-    enabled: false
+#cleaner:
+#  restartPolicy: OnFailure
+#  schedule: "1 0 * * *"
+#
+##storageClass:
+##  name: &scname "slow"
+##  provisioner: kubernetes.io/gce-pd
+##  gcp:
+##    type: pd-standard
+##    fstype: xfs
+##  replicationtype: none
+##
+##mongodb:
+##  architecture: replicaset
+##  useStatefulSet: true
+##  auth:
+##    rootPassword: "rootpass"
+##    username: "username"
+##    password: "password"
+##    database: "echo"
+##    replicaSetKey: "dg9CxJWOnuprgQ=="
+##  replicaSetName: MainRepSet
+##  replicaCount: 3
+##  service:
+##    nameOverride: "mongodb-headless"
+##    clusterIP: "None"
+##  persistence:
+##    storageClass: *scname
+##    size: 1Gi
+##  arbiter:
+##    enabled: false
 
