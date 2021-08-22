@@ -10,13 +10,13 @@ metadata:
 spec:
   releaseName: echoup-rc
   chart:
-    git: git@github.com:ThreatACC/helm-operator-get-started.git 
+    git: git@github.com:ThreatACC/helm-operator-get-started.git
     path: charts/echoup
     ref: master
   values:
     image:
       repository: gcr.io/fine-balm-322411/echoup
-      tag: stg-2oskoqdd
+      tag: stg-1ua0rywy
     replicaCount: 2
     hpa:
       enabled: true
