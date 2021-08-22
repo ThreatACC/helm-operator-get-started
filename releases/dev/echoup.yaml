@@ -16,7 +16,7 @@ spec:
   values:
     image:
       repository: gcr.io/fine-balm-322411/echoup
-      tag: dev-d4gji2hj
+      tag: dev-qkzdnvow
     replicaCount: 1
     hpa:
       enabled: false
