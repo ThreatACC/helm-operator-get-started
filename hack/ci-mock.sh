@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-repository="gcr.io/fine-balm-322411/echoup"
+repository="gcr.io/fine-balm-322411/echo-v5"
 branch="master"
 version=""
 commit=$(cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1 | awk '{print tolower($0)}')

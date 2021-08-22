@@ -15,7 +15,7 @@ spec:
     ref: master
   values:
     image:
-      repository: gcr.io/fine-balm-322411/echoup
+      repository: gcr.io/fine-balm-322411/echo-v5
       tag: stg-cxl7ec75
     replicaCount: 2
     hpa:
