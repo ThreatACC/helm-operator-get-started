@@ -55,6 +55,8 @@ and [fluxctl](https://github.com/fluxcd/flux/releases) binaries from GitHub.
 
 ### Install Flux
 
+#echo!
+
 The first step in automating Helm releases with [Flux](https://github.com/fluxcd/flux) is to create a Git repository with your charts source code.
 
 On GitHub, fork this repository and clone it locally
