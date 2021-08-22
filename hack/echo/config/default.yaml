@@ -1,5 +1,5 @@
 port: 3000
 loglevel: debug
 persist: false
-mongodburl: mongodb://username:password@mongodb:27017/sechmo?authSource=admin
-dbname: echo
+mongodburl: mongodb://username:password@mongodb:27017/helllllo?authSource=admin
+dbname: whatever
