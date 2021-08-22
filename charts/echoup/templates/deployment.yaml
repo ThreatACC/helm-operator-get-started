@@ -1,0 +1,43 @@
+{{- $targetPort := .Values.service.porthttp -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "echoup.fullname" . }}
+  labels:
+    {{- include "echoup.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "echoup.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "echoup.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: {{ .Values.image.repository }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ $targetPort }}
+              protocol: TCP
+          env:
+            - name: {{ .Values.secret.envname}}
+              valueFrom:
+                secretKeyRef: 
+                  name: {{ .Values.secret.name }}
+                  key: {{ .Values.secret.urlkey}} 
+            - name: {{ .Values.confmap.persistKey}}
+              valueFrom:
+                configMapKeyRef:
+                  name:  {{ .Values.confmap.name }}
+                  key: {{ .Values.confmap.persistKey}}
+            - name: {{ .Values.confmap.logLevelKey}}
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.confmap.name }}
+                  key: {{ .Values.confmap.logLevelKey}}

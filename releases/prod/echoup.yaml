@@ -1,0 +1,20 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: echoup-prod
+  namespace: prod
+  annotations:
+    fluxcd.io/automated: "true"
+    filter.fluxcd.io/chart-image: semver:~0.4
+spec:
+  releaseName: echoup-prod
+  chart:
+    git: git@github.com:ThreatACC/helm-operator-get-started.git 
+    path: charts/echoup
+    ref: master
+  values:
+    image:
+      repository: gcr.io/fine-balm-322411/echoup
+      tag: 0.4.11
+    replicaCount: 3

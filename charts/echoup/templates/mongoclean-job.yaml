@@ -1,0 +1,23 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: mongo-logs-daily-rotator
+spec:
+  schedule: {{ .Values.cleaner.schedule }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: mongod-cleaner
+            image: docker.io/bitnami/mongodb:4.4.8-debian-10-r9
+            env:
+            - name: MONGODBURL
+              valueFrom: 
+                secretKeyRef: 
+                  name: mongodb-secret
+                  key:  mongo-db-url
+            command: ["mongo", $(MONGODBURL) , "--eval", "db.dropDatabase()" ]
+          restartPolicy: {{ .Values.cleaner.restartPolicy }}
+
+
